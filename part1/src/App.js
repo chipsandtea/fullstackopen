@@ -1,8 +1,5 @@
 import { useState } from 'react'
 
-const Display = ({counter}) => <div>{counter}</div>;
- 
-
 const Button = ({text, onClick}) => (
     <button onClick={onClick}>
       {text}
