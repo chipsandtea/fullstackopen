@@ -9,27 +9,48 @@ const Button = ({text, onClick}) => (
     </button>
   )
 
+const Statistics = ({good, neutral, bad}) => {
+  return (
+    <div>
+      <h1>statistics</h1>
+      <p>good {good}</p>
+      <p>neutral {neutral}</p>
+      <p>bad {bad}</p>
+    </div>
+  )
+}
+
 const App = () => {
-  const [ counter, setCounter ] = useState(0)
+  const [ stats, setStats ] = useState({good: 0, neutral: 0, bad: 0})
 
-  const increment = () => {
-    setCounter(counter + 1);
+  const handleGood = () => {
+    setStats({
+      ...stats,
+      good: stats.good + 1
+    })
   }
 
-  const decrement = () => {
-    setCounter(counter -1);
+  const handleNeutral = () => {
+    setStats({
+      ...stats,
+      neutral: stats.neutral + 1
+    })
   }
 
-  const reset = () => {
-    setCounter(0);
+  const handleBad = () => {
+    setStats({
+      ...stats,
+      bad: stats.bad + 1
+    })
   }
 
   return (
     <>
-      <Display counter={counter}/>
-      <Button text='plus' onClick={increment}/>
-      <Button text='minus' onClick={decrement}/>
-      <Button text='reset' onClick={reset}/>
+      <h1>give feedback</h1>
+      <Button text='plus' onClick={handleGood}/>
+      <Button text='neutral' onClick={handleNeutral}/>
+      <Button text='bad' onClick={handleBad}/>
+      <Statistics stats={stats}/>
     </>
   )
 }
