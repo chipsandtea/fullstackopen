@@ -34,6 +34,7 @@ const Statistics = ({ stats }) => {
 
   const average = (goodScore + badScore + neutralScore) / total
   const positive = goodScore / total
+  const positiveStr = `${positive * 100}%`
   return (
     <>
       <h1>statistics</h1>
@@ -44,7 +45,7 @@ const Statistics = ({ stats }) => {
           <StatisticsLine statName="bad" statValue={bad} />
           <StatisticsLine statName="total" statValue={total} />
           <StatisticsLine statName="average" statValue={average} />
-          <StatisticsLine statName="positive" statValue={`${positive}%`} />
+          <StatisticsLine statName="positive" statValue={positiveStr} />
         </tbody>
       </table>
     </>
